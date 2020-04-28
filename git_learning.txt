@@ -1,0 +1,177 @@
+powershell - оболочка командной строки для Windows
+posh-git - модуль о текущем состоянии git (Windows)
+
+git --version
+atom -> install -> platformio-ide-terminal
+git config --global user.name kir
+git config --global user.email mymail@gmail.com
+git config --list
+git help commit
+git commit --help
+
+#просмотр
+git config user.name
+
+#дополнения
+atom -> install -> emet
+
+#на папку выше
+cd ../
+
+#initialization
+git init
+
+#one file
+git add index.php
+
+#vhole dir
+git add css/
+
+#добавить все в стадию ожидания
+git add .
+
+#view
+git status
+
+#коментарий
+git commit -m "add index.php and style.css"
+
+# only html files
+git add *.html
+
+# only folder
+git add css/
+
+#all files in folder
+git add css/*
+
+git add css/**/*.html
+
+#do not add style.css
+git add !css/style.css
+git add !index.html
+
+=== COMMIT ===
+
+git log --oneline
+
+#to the commit state
+git checkout COMMIT_ID
+
+#to the end state
+git checkout master
+
+#canleling the commit
+git revert COMMIT_ID
+:wq <ENTER> 
+
+# удалить комиты до определенного (файлы остаются)
+git reset COMMIT_ID
+
+# with files
+git reset COMMIT_ID --hard
+
+=== ВЕТКИ ===
+
+git branch forum
+git status
+git checkout forum //перейти на ветку forum
+git branch -a //какие ветки есть; current is green
+git checkout master //to the main branch
+
+git checkout -b admin //создаем и сразу переходим на ветку
+git add .
+git commit -m "start admin branch"
+git status
+
+//слияние
+git checkout master
+git merge forum //обьединение с веткой форум
+git branch -a //просмотр всех веток
+
+=== GITHUB REPOSITORY ===
+https://github.com/prikirale/github-tutorial.git
+
+…or create a new repository on the command line
+echo "# github-tutorial" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/prikirale/github-tutorial.git
+git push -u origin master
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/prikirale/github-tutorial.git
+git push -u origin master
+
+git remote //выдает origin
+git remote rm origin
+git remote add origin https://github.com/prikirale/github-tutorial.git
+git push -u origin master //добавить (закинуть) файлы в удаленный репозиторий ветки master
+
+https://markdownguide.org/basic-syntax/
+
+//выгрузка на git
+git add .
+git commit -m "some commit"
+git push -u origin master
+
+//клонирование репозитория
+1) download zip
+
+перейти на папку выше
+cd ../
+git clone https://github.com/prikirale/github-tutorial.git
+ 
+=== новый проект === с локального хранилища -> в виртуальное
+echo "# new-github-project" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/prikirale/new-github-project.git
+git push -u origin master
+
+или
+git clone https://github.com/prikirale/github-tutorial.git
+
+git pull //скачать изменения с git в локальную папку
+
+gitk - визуальный редактор git по умолчанию
+
+=== BRANCHES ===
+git branch //доступные ветки
+git checkout newbranch //переключение на ветку newbranch
+git status
+git log --oneline
+
+git push origin newbranch //скопировать на глобальный репозиторий ветку newbranch
+
+git push origin GLOBAL_BRANCH_NAME //вности изменения в удаленный репозиторий
+
+git add *
+git commit -m "текст комита" вносит изменения в локальный репозиторий
+
+//вытягивание из репозитория
+git pull origin dev
+
+//вытянет все с удаленного репозитория и поверх наложит изменения из локального репозитория
+git pull --rebase origin master
+//если мы сделали много изменений и хотим уйти от конфликтов в коде
+
+git stash //saving working directory and index sate
+git stash list // Просмотр виртуальной корзины
+git stash pop //достать изменения из корзины
+git status
+git stash list
+git stash show // Просмотр последнего изменения
+git stash apply //применить последее изменение
+git stash drop //удалить последнее stash-изменение
+git stash pop //применяет последний добавленный stash и удаляет последний добавленный текст.
+git stash clear //stash чистится
+
+git remote
+-->> origin //название, которое gitсервра дают по умолчанию для нового репозитория
+
+git remote -v //посмотреть, с какими удалеными репозиториями мы сейчас работаем
+
+
